@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Add data
+{% endblock title %}
+
+{% block local_css %}
+<link rel="stylesheet" href="{% static 'assets/vendor/select2/dist/css/select2.min.css' %}">
+{% endblock local_css %}
+
+{% block content %}
+<div class="content container-fluid">
+        <!-- Step Form -->
+    <form id="add-data-form" class="js-validate py-md-5">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-8">
+          <!-- Step -->
+          <ul id="addUserStepFormProgress" class="js-step-progress step step-sm step-icon-sm step step-inline step-item-between mb-3 mb-md-5">
+            <li class="step-item">
+              <a class="step-content-wrapper" href="javascript:;"
+                 data-hs-step-form-next-options='{
+                  "targetSelector": "#addUserStepProfile"
+                }'>
+                <span class="step-icon step-icon-soft-dark">1</span>
+                <div class="step-content">
+                  <span class="step-title">Fill Information</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- End Step -->
+
+          <!-- Content Step Form -->
+          <div id="addUserStepFormContent">
+            <!-- Card -->
+            <div id="addUserStepProfile" class="card card-lg active">
+              <!-- Body -->
+              <div class="card-body">
+                <!-- Form Group -->
+                <div class="row form-group js-form-message">
+                  <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">Full name <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Displayed on Identity proof, such as Addhaar, Pan."></i></label>
+
+                  <div class="col-sm-9">
+                    <div class="input-group input-group-sm-down-break">
+                      <input type="text" class="form-control" name="first_name" id="firstNameLabel" placeholder="Rahul" aria-label="Rahul">
+                      <input type="text" class="form-control" name="last_name" id="lastNameLabel" placeholder="Kumar" aria-label="Kumar">
+                    </div>
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="row form-group js-form-message">
+                  <label for="emailLabel" class="col-sm-3 col-form-label input-label">Email <span class="input-label-secondary">(Optional)</span></label>
+
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" name="email" id="emailLabel" placeholder="rahul@example.com" aria-label="clarice@example.com">
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="js-add-field row form-group"
+                     data-hs-add-field-options='{
+                        "template": "#addPhoneFieldTemplate",
+                        "container": "#addPhoneFieldContainer",
+                        "defaultCreated": 0
+                      }'>
+                  <label for="phoneLabel" class="col-sm-3 col-form-label input-label">Phone</label>
+
+                  <div class="col-sm-4">
+                    <div class="input-group input-group-sm-down-break align-items-center">
+                      <input type="text" class="js-masked-input form-control" name="phone" id="phoneLabel" placeholder="+91xxxxxxxxx" aria-label=""
+                             data-hs-mask-options='{
+                               "template": "+910000000000"
+                             }'>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="row form-group">
+                  <label class="col-sm-3 col-form-label input-label">Gender</label>
+
+                  <div class="col-sm-9">
+                    <div class="input-group input-group-sm-down-break">
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gender" id="userGenderType1" value="M">
+                          <label class="custom-control-label" for="userGenderType1">Male</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gender" id="userGenderType2" value="F">
+                          <label class="custom-control-label" for="userGenderType2">Female</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="gender" id="userGenderType3" value="O">
+                          <label class="custom-control-label" for="userGenderType3">Other</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+                    </div>
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="row form-group">
+                  <label class="col-sm-3 col-form-label input-label">Occupation Type</label>
+
+                  <div class="col-sm-9">
+                    <div class="input-group input-group-sm-down-break">
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="occupation" id="userOccupationType1" value="P">
+                          <label class="custom-control-label" for="userOccupationType1">Private</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="occupation" id="userOccupationType2" value="G">
+                          <label class="custom-control-label" for="userOccupationType2">Government</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="occupation" id="userOccupationType3" value="S">
+                          <label class="custom-control-label" for="userOccupationType3">Self Employed</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+
+                      <!-- Custom Radio -->
+                      <div class="form-control">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" name="occupation" id="userOccupationType4" value="U">
+                          <label class="custom-control-label" for="userOccupationType4">Unemployed</label>
+                        </div>
+                      </div>
+                      <!-- End Custom Radio -->
+                    </div>
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="row form-group">
+                  <label for="departmentLabel" class="col-sm-3 col-form-label input-label">Panchayat</label>
+
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="panchayat" id="departmentLabel" placeholder="Please Enter Panchayat" aria-label="Please Enter Panchayat">
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="row form-group">
+                  <label for="organizationLabel" class="col-sm-3 col-form-label input-label">Block</label>
+
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="block" id="organizationLabel" placeholder="Please Enter Block" aria-label="Please Enter Block">
+                  </div>
+                </div>
+                <!-- End Form Group -->
+              </div>
+              <!-- End Body -->
+
+              <!-- Footer -->
+              <div class="card-footer d-flex justify-content-end align-items-center">
+                <button type="submit" class="btn btn-primary">
+                  Submit <i class="tio-chevron-right"></i>
+                </button>
+              </div>
+              <!-- End Footer -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Content Step Form -->
+        </div>
+      </div>
+      <!-- End Row -->
+    </form>
+    <!-- End Step Form -->
+</div>
+{% endblock content %}
+
+{% block local_javascript %}
+<script src="{% static 'assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js' %}"></script>
+<script src="{% static 'assets/vendor/hs-unfold/dist/hs-unfold.min.js' %}"></script>
+<script src="{% static 'assets/vendor/hs-form-search/dist/hs-form-search.min.js' %}"></script>
+<script src="{% static 'assets/vendor/hs-file-attach/dist/hs-file-attach.min.js' %}"></script>
+<script src="{% static 'assets/vendor/hs-step-form/dist/hs-step-form.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-mask-plugin/dist/jquery.mask.min.js' %}"></script>
+<script src="{% static 'assets/vendor/select2/dist/js/select2.full.min.js' %}"></script>
+<script src="{% static 'assets/vendor/hs-add-field/dist/hs-add-field.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+      $(document).on('ready', function () {
+        $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
+          $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
+        });
+
+        // initialization of tooltip in navbar vertical menu
+        $('.js-nav-tooltip-link').tooltip({ boundary: 'window' })
+
+        $(".js-nav-tooltip-link").on("show.bs.tooltip", function(e) {
+          if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
+            return false;
+          }
+        });
+
+        // initialization of masked input
+        $('.js-masked-input').each(function () {
+          var mask = $.HSCore.components.HSMask.init($(this));
+        });
+
+        // initialization of select2
+        $('.js-select2-custom').each(function () {
+          var select2 = $.HSCore.components.HSSelect2.init($(this));
+        });
+
+        // initialization of form validation
+        $('.js-validate').each(function() {
+          $.HSCore.components.HSValidation.init($(this));
+        });
+
+        // initialization of add input filed
+        $('.js-add-field').each(function () {
+          new HSAddField($(this), {
+            addedField: function() {
+              $('.js-add-field .js-select2-custom-dynamic').each(function () {
+                var select2dynamic = $.HSCore.components.HSSelect2.init($(this));
+              });
+            }
+          }).init();
+        });
+      });
+    </script>
+{% endblock local_javascript %}

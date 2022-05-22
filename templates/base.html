@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Elector | {% block title %} {% endblock title %}</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{% static 'assets/vendor/icon-set/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css' %}">
+
+  {% block local_css %}
+  {% endblock local_css %}
+
+  <!-- CSS Front Template -->
+  <link rel="stylesheet" href="{% static 'assets/css/theme.min.css' %}">
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="navbar navbar-expand-xl navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
+    <div class="js-mega-menu navbar-nav-wrap">
+      <div class="navbar-brand-wrapper">
+        <!-- Logo -->
+          <a class="navbar-brand" href="{% url 'website:home' %}" aria-label="Front">
+            <img class="navbar-brand-logo" src="{% static 'assets/logo/logo.svg' %}" alt="Logo">
+          </a>
+
+        <!-- End Logo -->
+      </div>
+
+      <!-- Secondary Content -->
+      <div class="navbar-nav-wrap-content-right">
+        <!-- Navbar -->
+        <ul class="navbar-nav align-items-center flex-row">
+
+          <li class="nav-item">
+            <!-- Account -->
+            <div class="hs-unfold">
+              <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper" href="javascript:;"
+                 data-hs-unfold-options='{
+                   "target": "#accountNavbarDropdown",
+                   "type": "css-animation"
+                 }'>
+                <div class="avatar avatar-sm avatar-circle">
+                  <div class="avatar avatar-sm avatar-soft-primary avatar-circle mr-2">
+                    <span class="avatar-initials">{{user.full_name.0}}</span>
+                  </div>
+                  <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                </div>
+              </a>
+
+              <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
+                <div class="dropdown-item">
+                  <div class="media align-items-center">
+                    <div class="avatar avatar-sm avatar-circle mr-2">
+                      <div class="avatar avatar-sm avatar-soft-primary avatar-circle mr-2">
+                        <span class="avatar-initials">{{user.full_name.0}}</span>
+                      </div>
+                    </div>
+                    <div class="media-body">
+                      <span class="card-title h5">{{user.full_name}}</span>
+                      <span class="card-text">{{user.email}}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" href="#">
+                  <div class="media align-items-center">
+                    <div class="avatar avatar-sm avatar-dark avatar-circle mr-2">
+                      <span class="avatar-initials">EC</span>
+                    </div>
+                    <div class="media-body">
+                      <span class="card-title h5">ELECTOR <span class="badge badge-primary badge-pill text-uppercase ml-1">PRO</span></span>
+                      <span class="card-text">www.elector.com</span>
+                    </div>
+                  </div>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" href="{% url 'userauth:logout' %}">
+                  <span class="text-truncate pr-2" title="Sign out">Sign out</span>
+                </a>
+              </div>
+            </div>
+            <!-- End Account -->
+          </li>
+
+          <li class="nav-item">
+            <!-- Toggle -->
+            <button type="button" class="navbar-toggler btn btn-ghost-secondary rounded-circle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNavMenu" data-toggle="collapse" data-target="#navbarNavMenu">
+              <i class="tio-menu-hamburger"></i>
+            </button>
+            <!-- End Toggle -->
+          </li>
+        </ul>
+        <!-- End Navbar -->
+      </div>
+      <!-- End Secondary Content -->
+
+      <!-- Navbar -->
+      <div class="navbar-nav-wrap-content-left collapse navbar-collapse" id="navbarNavMenu">
+        <div class="navbar-body">
+          <ul class="navbar-nav flex-grow-1">
+            <!-- Dashboards -->
+            <li class="hs-has-sub-menu d-none">
+              <a id="dashboardsDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
+                <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
+              </a>
+
+              <!-- Dropdown -->
+              <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
+                <li>
+                  <a class="dropdown-item" href="javascript:;">
+                    <span class="tio-circle nav-indicator-icon"></span> Default
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% static 'dashboard-alternative.html' %}">
+                    <span class="tio-circle nav-indicator-icon"></span> Export Data
+                  </a>
+                </li>
+              </ul>
+              <!-- End Dropdown -->
+            </li>
+            <!-- End Dashboards -->
+          </ul>
+        </div>
+      </div>
+      <!-- End Navbar -->
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    {% block content %}
+    {% endblock content %}
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="row justify-content-between align-items-center">
+        <div class="col">
+          <p class="font-size-sm mb-0">&copy; Elector. <span class="d-none d-sm-inline-block">2022 Eureka ltd.</span></p>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex justify-content-end">
+            <!-- List Dot -->
+            <ul class="list-inline list-separator">
+              <li class="list-inline-item">
+                <a class="list-separator-link" href="javascript:;">FAQ</a>
+              </li>
+
+              <li class="list-inline-item">
+                <a class="list-separator-link" href="javascript:;">License</a>
+              </li>
+
+              <li class="list-inline-item">
+                <!-- Keyboard Shortcuts Toggle -->
+                <div class="hs-unfold">
+                  <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle" href="javascript:;"
+                     data-hs-unfold-options='{
+                          "target": "#keyboardShortcutsSidebar",
+                          "type": "css-animation",
+                          "animationIn": "fadeInRight",
+                          "animationOut": "fadeOutRight",
+                          "hasOverlay": true,
+                          "smartPositionOff": true
+                         }'>
+                    <i class="tio-command-key"></i>
+                  </a>
+                </div>
+                <!-- End Keyboard Shortcuts Toggle -->
+              </li>
+            </ul>
+            <!-- End List Dot -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- JS Global Compulsory  -->
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery-migrate/dist/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="{% static 'assets/vendor/hs-unfold/dist/hs-unfold.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js' %}"></script>
+  <script src="{% static 'website/utils.js' %}"></script>
+
+  {% block local_javascript %}
+  {% endblock local_javascript %}
+  <!-- JS Front -->
+  <script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of unfold
+      $('.js-hs-unfold-invoker').each(function () {
+        var unfold = new HSUnfold($(this)).init();
+      });
+
+      // initialization of mega menu
+      var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
+        desktop: {
+          position: 'left'
+        }
+      }).init();
+    });
+  </script>
+
+  <!-- IE Support -->
+  <script>
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{% static 'assets/vendor/babel-polyfill/polyfill.min.js' %}"><\/script>');
+  </script>
+</body>
+</html>
